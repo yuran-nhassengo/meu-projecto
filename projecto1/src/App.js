@@ -1,20 +1,31 @@
-import './App.css';
-import HelloWorld from './components/HelloWorld';
-import Pessoa from './components/Pessoa';
-import SayMyName from './components/SayMyName';
+import {BrowserRouter as Router,Routes, Route} from 'react-router-dom'
+import Navbar from './components/Navbar';
+import Contacto from './components/pages/Contacto';
+import Empresa from './components/pages/Empresa';
+import Home from './components/pages/Home';
+
 
 function App() {
 
 
-  const nome ="Yuran"
 
   return (
-    <div className="App">
-      <HelloWorld />
-      <SayMyName nome="Lamarck" />
-      <SayMyName nome={nome} />
-      <Pessoa nome="Yuran" idade="24" profissao="Programador" foto="https://via.placeholder.com/150" />
-    </div>
+    <Router>
+
+          <Navbar/>
+
+          <Routes>
+
+              <Route path="/"  element={<Home/>} />
+
+              <Route path ="/empresa" element ={<Empresa />} />
+
+              <Route path="/contacto" element={<Contacto/>}/>
+
+          </Routes>
+
+    </Router>
+
   )
 }
 
